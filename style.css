@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Hero';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/HeroLight-Regular.woff');
+}
+
+@font-face {
+    font-family: 'Hero Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/HeroLight-Bold.woff');
+}
+
+@font-face {
+    font-family: 'Hero Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/HeroLight-Light.woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Hero;
+}
