@@ -1,3 +1,14 @@
+let input = document.querySelector('.input-city input')
+let body = document.querySelector('body')
+document.addEventListener('keyup', (e) => {
+    if(e.code == 'Enter' || e.code == 'Escape') {
+        input.blur()
+    }
+    if(document.activeElement == input && input.value.length > 1) {
+
+    }
+})
+
 const getWeather = (url) => {
     return fetch(url)
       .then((response) => response.json())
