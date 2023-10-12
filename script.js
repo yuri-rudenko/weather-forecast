@@ -1,19 +1,23 @@
+import { getWeather } from "./files/scripts/getWeather.js"
+import { renderCity } from "./files/scripts/renderCity.js"
+
 let input = document.querySelector('.input-city input')
-let body = document.querySelector('body')
+let search = document.querySelector('.search')
 document.addEventListener('keyup', (e) => {
     if(e.code == 'Enter' || e.code == 'Escape') {
+        if(document.activeElement == input && input.value.length > 1) {
+            getWeather(input.value)
+        }
         input.blur()
     }
-    if(document.activeElement == input && input.value.length > 1) {
-
+})
+document.addEventListener('click', (ev) => {
+    if(ev.target == search) {
+        if(input.value.length > 1) {
+            getWeather(input.value)
+        }
+        input.blur()
     }
 })
 
-const getWeather = (url) => {
-    return fetch(url)
-      .then((response) => response.json())
-      .then(data => console.log(data))
-      .catch((error) => console.error(error))
-};
-
-getWeather("http://api.weatherapi.com/v1/current.json?key=9ab729aaa6834a76be0115437230910&q=Kyiv")
+getWeather('Kyiv')
