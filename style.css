@@ -38,8 +38,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 10px;
     background-color: white;
+    padding: 0;
 }
 .main-cont .row .col-4 {
     display: flex;
@@ -49,6 +49,7 @@ body {
     padding-bottom: 30px;
 }
 .main-cont .row .col-4 .input-city {
+    margin-top: 8px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,4 +99,73 @@ body {
 }
 .main-cont .row .col-4 .city {
     font-size: 32px;
+}
+
+
+.main-cont .row .right-col {
+    background-color: rgb(237, 237, 239);
+}
+.main-cont .row .right-col .navbar .nav-item .nav-link {
+    font-size: 23px;
+}
+.main-cont .row .right-col .navbar .nav-item .tomorrow {
+    color: rgb(161, 161, 161);
+}
+
+.main-cont .row .right-col {
+    padding-bottom: 30px;
+}
+.main-cont .row .right-col .container .row {
+    margin: 30px auto;
+}
+.main-cont .row .right-col .container .row .col {
+    background-color: rgb(116,140, 241);
+    margin: 20px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+}
+.main-cont .row .right-col .container .row .col p {
+    color: white;
+    margin: 0;
+}
+.main-cont .row .right-col .container .row .col .small-text_ {
+    font-family: Hero Light;
+}
+.main-cont .row .right-col .container .row .col .medium-text_ {
+    font-family: Hero Light;
+}
+.main-cont .row .right-col .container .row .col .big-text_ {
+    font-size: 36px;
+}
+.main-cont .row .right-col .container .row .sun .sun-sun, .main-cont .row .right-col .container .row .moon .moon-moon {
+    margin-bottom: 10px;
+}
+.main-cont .row .right-col .container .row .sun .sun-rise-container, .sun-set-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+}
+.main-cont .row .right-col .container .row .moon .moon-rise-container, .moon-set-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+}
+.main-cont .row .right-col .container .row .sr-time {
+    font-size: 22px;
+}
+.moon-container div, .sun-container div {
+    display: flex;
+}
+
+.main-cont .row .right-col .bottom-text {
+    display: flex;
+    margin-left: 30px;
+}
+.main-cont .row .right-col .bottom-text a {
+    margin-left: 5px;
 }
