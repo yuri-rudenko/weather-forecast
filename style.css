@@ -23,14 +23,9 @@
     margin: 0;
     padding: 0;
     font-family: Hero;
-    border: 1px lightgray;
 }
 html, body {
-    border: none;
     background-color: lightgray;
-}
-body {
-    height: 100vh;
 }
 
 .main-cont {
@@ -99,6 +94,7 @@ body {
 }
 .main-cont .row .col-4 .city {
     font-size: 32px;
+    text-align: center;
 }
 
 
@@ -138,7 +134,7 @@ body {
     font-family: Hero Light;
 }
 .main-cont .row .right-col .container .row .col .big-text_ {
-    font-size: 36px;
+    font-size: 32px;
 }
 .main-cont .row .right-col .container .row .sun .sun-sun, .main-cont .row .right-col .container .row .moon .moon-moon {
     margin-bottom: 10px;
