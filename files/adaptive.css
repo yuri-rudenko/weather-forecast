@@ -17,7 +17,6 @@
     }
     .main-cont .row {
         display: flex;
-        flex-direction: column;
     }
     .main-cont .row .col-4 {
         width: auto;
@@ -41,7 +40,17 @@
         width: 32px;
     }
     .main-cont .row .right-col .container .row {
+        flex-wrap: wrap;
         margin: auto;
+    }
+    .main-cont .row .right-col .container .row .sun, .main-cont .row .right-col .container .row .sun .moon {
+        min-width: 180px;
+    }
+    .main-cont .row .right-col .container .row .wind .wind-speed {
+        font-size: 26px;
+    }
+    .main-cont .row .right-col .container .row .wind {
+        flex-grow: 2;
     }
     .main-cont .row .col-4 .date-time-info {
         margin-right: 40px;

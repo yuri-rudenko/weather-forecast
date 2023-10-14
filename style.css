@@ -105,6 +105,9 @@ html, body {
 
 .main-cont .row .right-col {
     background-color: rgb(237, 237, 239);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .main-cont .row .right-col .navbar .nav-item .nav-link {
     font-size: 23px;
@@ -117,12 +120,12 @@ html, body {
     padding-bottom: 30px;
 }
 .main-cont .row .right-col .container .row {
-    margin: 30px auto;
+    margin: 10px auto;
 }
 .main-cont .row .right-col .container .row .col {
     background-color: rgb(116,140, 241);
     margin: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 10px 20px;
     height: 130px;
     display: flex;
@@ -141,6 +144,36 @@ html, body {
 .main-cont .row .right-col .container .row .col .big-text_ {
     font-size: 32px;
 }
+
+.main-cont .row .right-col .container .daily-weather {
+    background-color: none;
+    margin: 0px 20px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    box-shadow: 3px black;
+}
+.main-cont .row .right-col .container .daily-weather .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 5px;
+    border: 1px solid black;
+    padding: 0;
+    height: auto;
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+.main-cont .row .right-col .container .daily-weather .col p {
+    color: black;
+    font-size: 20px;
+}
+.main-cont .row .right-col .container .daily-weather img {
+    height: 50px;
+}
+
 .main-cont .row .right-col .container .row .sun .sun-sun, .main-cont .row .right-col .container .row .moon .moon-moon {
     margin-bottom: 10px;
 }

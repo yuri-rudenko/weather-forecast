@@ -1,4 +1,4 @@
-export function renderCity(weather) {
+export function renderCity(weather, day) {
     console.log(weather)
 
     let icon = document.querySelector('.weather-icon')
@@ -8,6 +8,8 @@ export function renderCity(weather) {
     let localtime = document.querySelector('.time')
     let is_day = document.querySelector('.day')
     let name = document.querySelector('.city')
+
+    let daily_weather = document.querySelectorAll('.daily-weather .col')
 
     let maxwind_kph = document.querySelector('.wind-speed')
     let wind_dir = document.querySelector('.wind-direction')
@@ -46,7 +48,7 @@ export function renderCity(weather) {
     localtime.innerHTML = weather.location.localtime.slice(11);
     is_day.innerHTML = weather.current.is_day ? "Day" : "Night";
     name.innerHTML = weather.location.name;
-    maxwind_kph.innerHTML = weather.current.wind_kph + ' km/h';
+    maxwind_kph.innerHTML = Math.floor(weather.current.wind_kph) + ' km/h';
     wind_dir.innerHTML = weather.current.wind_dir;
     humidity.innerHTML = weather.current.humidity +'%';
     feelslike_c.innerHTML = weather.current.feelslike_c + '°C';
@@ -65,4 +67,29 @@ export function renderCity(weather) {
     sunset.innerHTML = weather.forecast.forecastday[0].astro.sunset;
     moonrise.innerHTML = weather.forecast.forecastday[0].astro.moonrise;
     moonset.innerHTML = weather.forecast.forecastday[0].astro.moonset;
+
+
+    let curtime = localtime.innerHTML.slice(0, -3)
+    let i = 0
+    for(let col of daily_weather) {
+        let time = col.querySelector('.daily-weather .time')
+        let img = col.querySelector('.daily-weather img')
+        let temperature = col.querySelector('.daily-weather .temperature')
+
+        let curhour = weather.forecast.forecastday[day].hour[curtime-1+i]
+
+        time.innerHTML = (Number(curtime) + i) + ":00"
+
+        let code = weather.forecast.forecastday[day].hour[curtime-1+i].condition.icon.slice(-7, -4)
+        if(weather.forecast.forecastday[day].hour[curtime-1+i].is_day) {
+            img.src = `./img/weather/day/${code}.png`
+        }
+        else {
+            img.src = `./img/weather/night/${code}.png`
+        }
+
+        temperature.innerHTML = weather.forecast.forecastday[day].hour[curtime-1+i].temp_c +'°C'
+
+        i++
+    }
 }
