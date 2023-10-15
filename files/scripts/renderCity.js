@@ -1,7 +1,10 @@
 import { getDate, getWeekDay } from "./getDate.js"
+import { drawNavDays } from "./drawNavDays.js"
 
 export function renderCity(weather, day) {
     console.log(weather)
+    
+    drawNavDays(weather)
 
     let icon = document.querySelector('.weather-icon')
     let temp_c = document.querySelector('.temperature')
