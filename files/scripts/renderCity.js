@@ -13,7 +13,7 @@ export function renderCity(weather, day) {
 
     let daily_weather = document.querySelectorAll('.daily-weather .col')
 
-    let maxwind_kph = document.querySelector('.wind-speed')
+    let wind_kph = document.querySelector('.wind-speed')
     let wind_dir = document.querySelector('.wind-direction')
 
     let humidity = document.querySelector('.humidity-percent')
@@ -27,7 +27,8 @@ export function renderCity(weather, day) {
 
     let daily_chance_of_rain = document.querySelector('.rain-percent')
 
-    let cloud = document.querySelector('.cloud-percent')
+    let minTemp = document.querySelector('.temp-min')
+    let maxTemp = document.querySelector('.temp-max')
 
     let sunrise = document.querySelector('.sun-rise-time')
     let sunset = document.querySelector('.sun-set-time')
@@ -54,27 +55,56 @@ export function renderCity(weather, day) {
 
     is_day.innerHTML = weather.current.is_day ? "Day" : "Night";
     name.innerHTML = weather.location.name;
-    maxwind_kph.innerHTML = Math.floor(weather.current.wind_kph) + ' km/h';
-    wind_dir.innerHTML = weather.current.wind_dir;
-    humidity.innerHTML = weather.current.humidity +'%';
-    feelslike_c.innerHTML = weather.current.feelslike_c + '°C';
 
-    uv.innerHTML = weather.current.uv
+    if(day == 0) {
+        wind_kph.innerHTML = Math.floor(weather.current.wind_kph) + ' km/h';
+        wind_dir.innerHTML = weather.current.wind_dir;
+        humidity.innerHTML = weather.current.humidity +'%';
+        feelslike_c.innerHTML = weather.current.feelslike_c + '°C';
+    
+        uv.innerHTML = weather.current.uv
+    
+        if(weather.current.uv < 3) uv_cond.innerHTML = "Low"
+        else if(weather.current.uv < 6) uv_cond.innerHTML = "Moderate"
+        else if(weather.current.uv < 8) uv_cond.innerHTML = "High"
+        else if(weather.current.uv < 11) uv_cond.innerHTML = "Very Hight"
+        else uv_cond.innerHTML = "Extreme"
+    
+        pressure_mb.innerHTML = weather.current.pressure_mb +'mb';
+        daily_chance_of_rain.innerHTML = weather.forecast.forecastday[0].day.daily_chance_of_rain + '%';
+        minTemp.innerHTML = weather.forecast.forecastday[day].day.mintemp_c + '°C';
+        maxTemp.innerHTML = weather.forecast.forecastday[day].day.maxtemp_c + '°C';
+        sunrise.innerHTML = weather.forecast.forecastday[0].astro.sunrise;
+        sunset.innerHTML = weather.forecast.forecastday[0].astro.sunset;
+        moonrise.innerHTML = weather.forecast.forecastday[0].astro.moonrise;
+        moonset.innerHTML = weather.forecast.forecastday[0].astro.moonset;
+    }
+    else {
+        let curDay = weather.forecast.forecastday[day].day
+        let astro = weather.forecast.forecastday[day].astro
 
-    if(weather.current.uv < 3) uv_cond.innerHTML = "Low"
-    else if(weather.current.uv < 6) uv_cond.innerHTML = "Moderate"
-    else if(weather.current.uv < 8) uv_cond.innerHTML = "High"
-    else if(weather.current.uv < 11) uv_cond.innerHTML = "Very Hight"
-    else uv_cond.innerHTML = "Extreme"
-
-    pressure_mb.innerHTML = weather.current.pressure_mb +'mb';
-    daily_chance_of_rain.innerHTML = weather.forecast.forecastday[0].day.daily_chance_of_rain + '%';
-    cloud.innerHTML = weather.current.cloud + '%';
-    sunrise.innerHTML = weather.forecast.forecastday[0].astro.sunrise;
-    sunset.innerHTML = weather.forecast.forecastday[0].astro.sunset;
-    moonrise.innerHTML = weather.forecast.forecastday[0].astro.moonrise;
-    moonset.innerHTML = weather.forecast.forecastday[0].astro.moonset;
-
+        wind_kph.innerHTML = Math.floor(curDay.maxwind_kph) + ' km/h';
+        wind_dir.innerHTML = 'Max speed';
+        humidity.innerHTML = curDay.avghumidity +'%';
+        feelslike_c.innerHTML = curDay.avgtemp_c + '°C';
+    
+        uv.innerHTML = curDay.uv
+    
+        if(curDay.uv < 3) uv_cond.innerHTML = "Low"
+        else if(curDay.uv < 6) uv_cond.innerHTML = "Moderate"
+        else if(curDay.uv < 8) uv_cond.innerHTML = "High"
+        else if(curDay.uv < 11) uv_cond.innerHTML = "Very Hight"
+        else uv_cond.innerHTML = "Extreme"
+    
+        pressure_mb.innerHTML = '-';
+        daily_chance_of_rain.innerHTML = weather.forecast.forecastday[0].day.daily_chance_of_rain + '%';
+        minTemp.innerHTML = curDay.mintemp_c + '°C';
+        maxTemp.innerHTML = curDay.maxtemp_c + '°C';
+        sunrise.innerHTML = astro.sunrise;
+        sunset.innerHTML = astro.sunset;
+        moonrise.innerHTML =astro.moonrise;
+        moonset.innerHTML = astro.moonset;
+    }
 
     let curtime = Number(localtime.innerHTML.slice(-5,-3))
     if((curtime+1)%6 == 0) curtime +=2
