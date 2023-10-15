@@ -1,5 +1,4 @@
 import { getWeather } from "./files/scripts/getWeather.js"
-import { renderCity } from "./files/scripts/renderCity.js"
 
 let input = document.querySelector('.input-city input')
 let search = document.querySelector('.search')

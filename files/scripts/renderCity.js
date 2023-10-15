@@ -1,12 +1,14 @@
+import { getDate, getWeekDay } from "./getDate.js"
+
 export function renderCity(weather, day) {
     console.log(weather)
 
     let icon = document.querySelector('.weather-icon')
     let temp_c = document.querySelector('.temperature')
     let text = document.querySelector('.weather-state')
-    let date = document.querySelector('.date')
-    let localtime = document.querySelector('.time')
-    let is_day = document.querySelector('.day')
+    let date = document.querySelector('.date-time-info .date')
+    let localtime = document.querySelector('.date-time-info .time')
+    let is_day = document.querySelector('.date-time-info .day')
     let name = document.querySelector('.city')
 
     let daily_weather = document.querySelectorAll('.daily-weather .col')
@@ -44,14 +46,19 @@ export function renderCity(weather, day) {
 
     temp_c.innerHTML = weather.current.temp_c +'°C';
     text.innerHTML = weather.current.condition.text;
-    date.innerHTML = weather.current.last_updated.slice(0, 10);
-    localtime.innerHTML = weather.location.localtime.slice(11);
+
+    let curDate = getDate()
+
+    date.innerHTML = `${curDate.day}-${curDate.month}-${curDate.year}`
+    localtime.innerHTML = `${curDate.weekDay},${curDate.time}`
+
     is_day.innerHTML = weather.current.is_day ? "Day" : "Night";
     name.innerHTML = weather.location.name;
     maxwind_kph.innerHTML = Math.floor(weather.current.wind_kph) + ' km/h';
     wind_dir.innerHTML = weather.current.wind_dir;
     humidity.innerHTML = weather.current.humidity +'%';
     feelslike_c.innerHTML = weather.current.feelslike_c + '°C';
+
     uv.innerHTML = weather.current.uv
 
     if(weather.current.uv < 3) uv_cond.innerHTML = "Low"
@@ -69,7 +76,7 @@ export function renderCity(weather, day) {
     moonset.innerHTML = weather.forecast.forecastday[0].astro.moonset;
 
 
-    let curtime = Number(localtime.innerHTML.slice(0, -3))
+    let curtime = Number(localtime.innerHTML.slice(-5,-3))
     if((curtime+1)%6 == 0) curtime +=2
     while((curtime-1)%6 != 0) {
         curtime--
