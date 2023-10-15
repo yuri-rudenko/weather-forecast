@@ -69,28 +69,32 @@ export function renderCity(weather, day) {
     moonset.innerHTML = weather.forecast.forecastday[0].astro.moonset;
 
 
-    let curtime = localtime.innerHTML.slice(0, -3)
+    let curtime = Number(localtime.innerHTML.slice(0, -3))
+    if((curtime+1)%6 == 0) curtime +=2
+    while((curtime-1)%6 != 0) {
+        curtime--
+    }
     
     let i = 0
     for(let col of daily_weather) {
-        if(Number(curtime) + i == 25) i = i-=24
+        if(curtime + i == 25) i = i-=24
         let time = col.querySelector('.daily-weather .time')
         let img = col.querySelector('.daily-weather img')
         let temperature = col.querySelector('.daily-weather .temperature')
 
         let curhour = weather.forecast.forecastday[day].hour[curtime-1+i]
 
-        time.innerHTML = (Number(curtime) + i-1) + ":00"
+        time.innerHTML = (curtime + i-1) + ":00"
 
-        let code = weather.forecast.forecastday[day].hour[curtime-1+i].condition.icon.slice(-7, -4)
-        if(weather.forecast.forecastday[day].hour[curtime-1+i].is_day) {
+        let code = curhour.condition.icon.slice(-7, -4)
+        if(curhour.is_day) {
             img.src = `./img/weather/day/${code}.png`
         }
         else {
             img.src = `./img/weather/night/${code}.png`
         }
 
-        temperature.innerHTML = weather.forecast.forecastday[day].hour[curtime-1+i].temp_c +'°C'
+        temperature.innerHTML = curhour.temp_c +'°C'
 
         i++
     }
