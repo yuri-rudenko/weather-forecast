@@ -152,6 +152,15 @@ html, body {
     flex-wrap: wrap;
     box-shadow: 3px black;
 }
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    position: relative;
+}
+.carousel-control-prev-icon {
+    right: 40px;
+}
+.carousel-control-next-icon {
+    left: 40px;
+}
 .main-cont .row .right-col .container .daily-weather .col {
     display: flex;
     flex-direction: column;

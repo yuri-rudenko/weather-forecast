@@ -6,7 +6,7 @@
         margin-right: auto;
     }
 }
-@media(max-width:1000px) {
+@media(max-width:990px) {
     .main-cont {
         position:absolute;
         top: 0%;
@@ -34,10 +34,19 @@
     .row>* {
         width: auto;
     }
+    .carousel-main>* {
+        width: 100%;
+    }
     .main-cont .row .col-4 .input-city .search {
         margin-left: 62%;
         margin-top: 6px;
         width: 32px;
+    }
+    .carousel-control-prev-icon {
+        right: 30px;
+    }
+    .carousel-control-next-icon {
+        left: 30px;
     }
     .main-cont .row .right-col .container .row {
         flex-wrap: wrap;

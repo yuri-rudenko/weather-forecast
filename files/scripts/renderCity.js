@@ -70,15 +70,17 @@ export function renderCity(weather, day) {
 
 
     let curtime = localtime.innerHTML.slice(0, -3)
+    
     let i = 0
     for(let col of daily_weather) {
+        if(Number(curtime) + i == 25) i = i-=24
         let time = col.querySelector('.daily-weather .time')
         let img = col.querySelector('.daily-weather img')
         let temperature = col.querySelector('.daily-weather .temperature')
 
         let curhour = weather.forecast.forecastday[day].hour[curtime-1+i]
 
-        time.innerHTML = (Number(curtime) + i) + ":00"
+        time.innerHTML = (Number(curtime) + i-1) + ":00"
 
         let code = weather.forecast.forecastday[day].hour[curtime-1+i].condition.icon.slice(-7, -4)
         if(weather.forecast.forecastday[day].hour[curtime-1+i].is_day) {
