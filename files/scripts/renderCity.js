@@ -110,7 +110,10 @@ export function renderCity(weather, day, addEvents) {
     }
 
     let curtime = ((localtime.innerHTML.slice(-5,-3)))
+    console.log(curtime)
     if(curtime[0] == ',') curtime = curtime[1]
+    curtime = Number(curtime    )
+    console.log(curtime)
    
     if((curtime+1)%6 == 0) curtime +=2
     while((curtime-1)%6 != 0) {

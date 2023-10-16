@@ -18,7 +18,7 @@ export function getDate(curDate) {
     }
 }
 export function getWeekDay(num) {
-    const daysOfWeek = ["Sun", "Mond", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return daysOfWeek[num]
 }
 export function getDayOfWeekIndex(dateString) {
