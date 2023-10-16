@@ -18,4 +18,5 @@ document.addEventListener('click', (ev) => {
         input.blur()
     }
 })
+
 getWeather('Kyiv')

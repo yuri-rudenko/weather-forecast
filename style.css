@@ -115,6 +115,9 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
 }
+.main-cont .row .right-col .navbar .nav-item  {
+    cursor: pointer;
+}
 .main-cont .row .right-col .navbar .nav-item .nav-link {
     font-size: 23px;
 }

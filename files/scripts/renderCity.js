@@ -1,10 +1,10 @@
 import { getDate, getWeekDay } from "./getDate.js"
 import { drawNavDays } from "./drawNavDays.js"
 
-export function renderCity(weather, day) {
+export function renderCity(weather, day, addEvents) {
     console.log(weather)
-    
-    drawNavDays(weather)
+
+    if(addEvents) drawNavDays(weather)
 
     let icon = document.querySelector('.weather-icon')
     let temp_c = document.querySelector('.temperature')
@@ -51,7 +51,7 @@ export function renderCity(weather, day) {
     temp_c.innerHTML = weather.current.temp_c +'°C';
     text.innerHTML = weather.current.condition.text;
 
-    let curDate = getDate()
+    let curDate = getDate(weather.current.last_updated)
 
     date.innerHTML = `${curDate.day}-${curDate.month}-${curDate.year}`
     localtime.innerHTML = `${curDate.weekDay},${curDate.time}`
@@ -100,16 +100,18 @@ export function renderCity(weather, day) {
         else uv_cond.innerHTML = "Extreme"
     
         pressure_mb.innerHTML = '-';
-        daily_chance_of_rain.innerHTML = weather.forecast.forecastday[0].day.daily_chance_of_rain + '%';
+        daily_chance_of_rain.innerHTML = curDay.daily_chance_of_rain + '%';
         minTemp.innerHTML = curDay.mintemp_c + '°C';
         maxTemp.innerHTML = curDay.maxtemp_c + '°C';
         sunrise.innerHTML = astro.sunrise;
         sunset.innerHTML = astro.sunset;
-        moonrise.innerHTML =astro.moonrise;
+        moonrise.innerHTML = astro.moonrise;
         moonset.innerHTML = astro.moonset;
     }
 
-    let curtime = Number(localtime.innerHTML.slice(-5,-3))
+    let curtime = ((localtime.innerHTML.slice(-5,-3)))
+    if(curtime[0] == ',') curtime = curtime[1]
+   
     if((curtime+1)%6 == 0) curtime +=2
     while((curtime-1)%6 != 0) {
         curtime--
