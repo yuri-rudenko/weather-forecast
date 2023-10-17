@@ -40,7 +40,6 @@ export function renderCity(weather, day, addEvents) {
     let moonset = document.querySelector('.moon-set-time')
 
     let code = weather.current.condition.icon.slice(-7, -4)
-    console.log(code)
     if(weather.current.is_day) {
         icon.src = `./img/weather/day/${code}.png`
     }
@@ -51,7 +50,7 @@ export function renderCity(weather, day, addEvents) {
     temp_c.innerHTML = weather.current.temp_c +'°C';
     text.innerHTML = weather.current.condition.text;
 
-    let curDate = getDate(weather.current.last_updated)
+    let curDate = getDate(weather.location.localtime)
 
     date.innerHTML = `${curDate.day}-${curDate.month}-${curDate.year}`
     localtime.innerHTML = `${curDate.weekDay},${curDate.time}`
@@ -110,10 +109,8 @@ export function renderCity(weather, day, addEvents) {
     }
 
     let curtime = ((localtime.innerHTML.slice(-5,-3)))
-    console.log(curtime)
     if(curtime[0] == ',') curtime = curtime[1]
-    curtime = Number(curtime    )
-    console.log(curtime)
+    curtime = Number(curtime)
    
     if((curtime+1)%6 == 0 || (curtime)%6 == 0) curtime +=2
     while((curtime-1)%6 != 0) {
