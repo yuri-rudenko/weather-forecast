@@ -7,13 +7,12 @@
     }
 }
 @media(max-width:992px) {
+    html, body {
+        
+    }
     .main-cont {
-        position:absolute;
         top: 0%;
-        left: 50%;
         transform: translate(-50%, -0%);
-        background-color: white;
-        padding: 0;
     }
     .main-cont .row {
         display: flex;
@@ -84,6 +83,24 @@
         width: 68%;
     }
 }
+@media(max-width:410px) {
+    .main-cont .row .right-col .navbar .navbar-nav  {
+        display: grid;
+        grid-auto-flow: column;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 1rem;
+    }
+}
+@media(max-width:340px){
+    .main-cont .row .col-4 .date-time-info {
+        margin-right: 0px;
+    }
+}
+
+
+
+
 @media(max-width:460px) {
     .main-cont .row .right-col .container .daily-weather .col {
         padding: 0px 16px;

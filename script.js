@@ -1,9 +1,13 @@
 import { addInputEvents } from "./files/scripts/addInputEvents.js"
 import { getWeather } from "./files/scripts/getWeather.js"
 import { getCookie } from "./files/scripts/cookies.js"
-                                                                                                                                               
-if(getCookie("city")) {
-    getWeather(getCookie("city"))
+
+
+let input = document.querySelector('.input-city input')
+let city = getCookie("city")
+if(city) {
+    getWeather(city)
+    input.value = `${city}`
 }
 else getWeather('Kyiv')
 

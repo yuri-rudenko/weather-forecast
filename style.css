@@ -103,6 +103,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .main-cont .row .col-4 .date-time-info p {
     margin: 0;
