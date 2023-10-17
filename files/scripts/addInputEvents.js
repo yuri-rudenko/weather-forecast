@@ -67,6 +67,9 @@ export function addInputEvents() {
         }, 100)
     });
     input.addEventListener('focus', async function () {
+        if(input.value == "Wrong city") {
+            input.value = ''
+        }
         if (input.value.length > 2) {
             const query = input.value;
             const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=9ab729aaa6834a76be0115437230910&q=${query}`);
