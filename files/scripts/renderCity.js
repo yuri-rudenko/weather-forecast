@@ -115,7 +115,7 @@ export function renderCity(weather, day, addEvents) {
     curtime = Number(curtime    )
     console.log(curtime)
    
-    if((curtime+1)%6 == 0) curtime +=2
+    if((curtime+1)%6 == 0 || (curtime)%6 == 0) curtime +=2
     while((curtime-1)%6 != 0) {
         curtime--
     }

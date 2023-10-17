@@ -24,6 +24,7 @@
     padding: 0;
     font-family: Hero;
 }
+
 html, body {
     background-color: lightgray;
 }
@@ -60,6 +61,16 @@ html, body {
     position: absolute;
     margin-top: 4px;
     margin-left: 20%;
+}
+.main-cont .row .col-4 .input-city .autocomplete {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    margin-top: 34px;
+    width: 23%;
+}
+.main-cont .row .col-4 .input-city .autocomplete .suggestion-item {
+    cursor: pointer;
 }
 .main-cont .row .col-4 .weather-picture {
     display: flex;
@@ -107,7 +118,6 @@ html, body {
     text-align: center;
     margin-left: 10px;
 }
-
 
 .main-cont .row .right-col {
     background-color: rgb(237, 237, 239);
@@ -199,13 +209,13 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 .main-cont .row .right-col .container .row .moon .moon-rise-container, .moon-set-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 .main-cont .row .right-col .container .row .sr-time {
     font-size: 22px;

@@ -7,19 +7,20 @@ export function getDate(curDate) {
         minutes = '0' + date.getMinutes()
     }
     else minutes = date.getMinutes()
-    let weekDay = getWeekDay(date.getDay())
     return {
         year: date.getFullYear(),
         month: month,
         day: date.getDate(),   
-        weekDay: weekDay,
+        weekDay: getWeekDay(date.getDay(), true),
         weekDayNum: date.getDay(),
         time: date.getHours() + ":" + minutes
     }
 }
-export function getWeekDay(num) {
+export function getWeekDay(num, long) {
     const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    return daysOfWeek[num]
+    const daysOfWeekLong = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+    if(long) return daysOfWeekLong[num]
+    else return daysOfWeek[num]
 }
 export function getDayOfWeekIndex(dateString) {
     const date = new Date(dateString)
