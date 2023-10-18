@@ -7,7 +7,6 @@ let input = document.querySelector('.input-city input')
 let city = getCookie("city")
 if(city) {
     getWeather(city)
-    input.value = `${city}`
 }
 else getWeather('Kyiv')
 

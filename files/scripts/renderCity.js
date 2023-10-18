@@ -1,5 +1,6 @@
 import { getDate, getWeekDay } from "./getDate.js"
 import { drawNavDays } from "./drawNavDays.js"
+import { getCountryCode } from "./getCountryCode.js"
 
 export function renderCity(weather, day, addEvents) {
     console.log(weather)
@@ -12,7 +13,8 @@ export function renderCity(weather, day, addEvents) {
     let date = document.querySelector('.date-time-info .date')
     let localtime = document.querySelector('.date-time-info .time')
     let is_day = document.querySelector('.date-time-info .day')
-    let name = document.querySelector('.city')
+    let name = document.querySelector('.city p')
+    let flag  = document.querySelector('.city img')
 
     let daily_weather = document.querySelectorAll('.daily-weather .col')
 
@@ -57,6 +59,12 @@ export function renderCity(weather, day, addEvents) {
 
     is_day.innerHTML = weather.current.is_day ? "Day" : "Night";
     name.innerHTML = weather.location.name;
+    
+    let coutryCode = getCountryCode(weather.location.country)
+    if(coutryCode) {
+        flag.src = `https://flagsapi.com/${coutryCode}/shiny/64.png`
+    }
+    else flag.src = ''
 
     if(day == 0) {
         wind_kph.innerHTML = Math.floor(weather.current.wind_kph) + ' km/h';
