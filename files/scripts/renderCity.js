@@ -3,7 +3,6 @@ import { drawNavDays } from "./drawNavDays.js"
 import { getCountryCode } from "./getCountryCode.js"
 
 export function renderCity(weather, day, addEvents) {
-    console.log(weather)
 
     if(addEvents) drawNavDays(weather)
 
