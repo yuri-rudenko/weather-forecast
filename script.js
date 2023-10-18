@@ -5,6 +5,7 @@ import { getCookie } from "./files/scripts/cookies.js"
 
 let input = document.querySelector('.input-city input')
 let city = getCookie("city")
+input.setAttribute('data-value', `${city}`)
 if(city) {
     getWeather(city)
 }
