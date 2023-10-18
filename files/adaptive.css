@@ -114,3 +114,11 @@
     }
 }
 
+@media(min-width:993px) {
+    @media(max-height: 830px) {
+        .main-cont {
+            top: 0%;    
+            transform: translate(-50%, -0%);
+        }
+    }
+}
