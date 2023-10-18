@@ -62,7 +62,8 @@ export function renderCity(weather, day, addEvents) {
     
     let coutryCode = getCountryCode(weather.location.country)
     if(coutryCode) {
-        flag.src = `https://flagsapi.com/${coutryCode}/shiny/64.png`
+        if(coutryCode == 'RU') flag.src = "img/terrorist.png"
+        else flag.src = `https://flagsapi.com/${coutryCode}/shiny/64.png`
     }
     else flag.src = ''
 

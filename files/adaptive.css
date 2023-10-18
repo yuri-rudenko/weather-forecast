@@ -63,7 +63,12 @@
         flex-grow: 2;
     }
     .main-cont .row .col-4 .date-time-info {
-        margin-right: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .main-cont .row .col-4 .city {
+        margin-right: 20px;
+        margin-left: 20px;
     }
     .main-cont .row .col-4 .input-city input {
         font-size: 24px;
@@ -87,11 +92,6 @@
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         scroll-padding: 1rem;
-    }
-}
-@media(max-width:340px){
-    .main-cont .row .col-4 .date-time-info {
-        margin-right: 0px;
     }
 }
 
