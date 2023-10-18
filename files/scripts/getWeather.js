@@ -14,6 +14,7 @@ export function getWeather(city) {
     })
     .then(data => {
       input.style.border = "none"
+      input.dataset.value = city
       search.style.marginTop = '4px'
       setCookie('city', city, 3)
       renderCity(data, 0, 1)

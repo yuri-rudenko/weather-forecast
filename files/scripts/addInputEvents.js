@@ -61,13 +61,15 @@ export function addInputEvents() {
 
         autocompleteContainer.style.display = 'block';
     }
-    input.addEventListener('blur', () => {
+    input.addEventListener('blur', () => {   
+        if(input.value == '') input.value = input.dataset.value                                           
         setTimeout(() => {
             autocompleteContainer.style.display = 'none';
-        }, 100)
+        }, 150)
     });
     input.addEventListener('focus', async function () {
-        if(input.value == "Wrong city") {
+        let city = document.querySelector('.city').innerHTML
+        if (input.value.toLowerCase().includes(city.toLowerCase()) || city.toLowerCase().includes(input.value.toLowerCase())) {
             input.value = ''
         }
         if (input.value.length > 2) {
