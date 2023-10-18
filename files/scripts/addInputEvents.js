@@ -5,7 +5,7 @@ export function addInputEvents() {
     let input = document.querySelector('.input-city input')
     let search = document.querySelector('.search')
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keypress', (e) => {
         if (e.code == 'Enter') {
             if (document.activeElement == input && input.value.length > 1) {
                 getWeather(input.value)
