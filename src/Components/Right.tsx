@@ -17,13 +17,12 @@ const Right = () => {
                 </nav>
                 <div className="container">
                     <div className="row carousel-main">
-                        <div id="carouselExampleSlidesOnly" className="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-interval="1000000">
-                            <div className="carousel-inner">
-                                <WeatherCarousel/>
-                            </div>
+                        <div className="carousel-inner">
+                            <WeatherCarousel />
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="table-container">
+
                         <div className="col wind">
                             <p className="wind-wind small-text_">Wind</p>
                             <p className="wind-speed big-text_">0 km/h</p>
@@ -37,8 +36,7 @@ const Right = () => {
                             <p className="feel-feel small-text_">Real Feel</p>
                             <p className="feel-degrees big-text_">0°C</p>
                         </div>
-                    </div>
-                    <div className="row">
+
                         <div className="col index">
                             <p className="index-index small-text_">UV Index</p>
                             <p className="index-number big-text_">0</p>
@@ -52,8 +50,7 @@ const Right = () => {
                             <p className="rain-rain small-text_">Chance of rain</p>
                             <p className="rain-percent big-text_">0%</p>
                         </div>
-                    </div>
-                    <div className="row">
+
                         <div className="col sun temp">
                             <p className="small-text_ sun-sun">Temperature</p>
                             <div className="sun-container">
@@ -94,6 +91,7 @@ const Right = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div className="bottom-text">
                     <p>All data provided by</p>

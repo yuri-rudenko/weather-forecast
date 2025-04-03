@@ -2,7 +2,7 @@ import React from 'react';
 import Left from './Components/Left';
 import Right from './Components/Right';
 import './style/style.css';
-import 'rsuite/dist/rsuite.min.css';
+import 'rsuite/Carousel/styles/index.css';
 
 function App() {
   return (

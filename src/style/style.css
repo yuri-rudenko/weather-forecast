@@ -22,7 +22,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Hero;
+    font-family: Hero, sans-serif;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -132,6 +133,9 @@ html, body {
     flex-direction: column;
     justify-content: space-between;
 }
+.main-cont .right-col .navbar * {
+    font-family: 'Hero';
+}
 .main-cont .right-col .navbar .nav-item  {
     cursor: pointer;
 }
@@ -145,30 +149,46 @@ html, body {
 .main-cont .right-col {
     padding-bottom: 30px;
 }
-.main-cont .right-col .container .row {
+.main-cont .right-col .container .table-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: fit-content;
+}
+.main-cont .right-col .container {
     margin: 10px auto;
 }
-.main-cont .right-col .container .row .col {
+.main-cont .right-col .container .col {
+
     background-color: rgb(116,140, 241);
     margin: 20px;
     border-radius: 15px;
     padding: 10px 20px;
     height: 130px;
+    width: 200px;
     display: flex;
     flex-direction: column;
+
 }
-.main-cont .right-col .container .row .col p {
+.main-cont .right-col .container .col p {
     color: white;
     margin: 0;
 }
-.main-cont .right-col .container .row .col .small-text_ {
+.main-cont .right-col .container.col .small-text_ {
     font-family: Hero Light;
 }
-.main-cont .right-col .container .row .col .medium-text_ {
+.main-cont .right-col .container .col .medium-text_ {
     font-family: Hero Light;
 }
-.main-cont .right-col .container .row .col .big-text_ {
+.main-cont .right-col .container .col .big-text_ {
     font-size: 32px;
+}
+
+.main-cont .right-col *  {
+    font-family: 'Courier New', Courier, monospace;
+}
+.main-cont .right-col .container *  {
+    font-family: 'Hero';
 }
 
 .main-cont .right-col .container .daily-weather {
@@ -177,6 +197,14 @@ html, body {
     border-radius: 15px;
     flex-wrap: wrap;
     box-shadow: 3px black;
+    height: fit-content;
+}
+
+.main-cont .right-col .container .rs-carousel-slider-item {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(237, 237, 239);
+    border: none;
 }
 
 .main-cont .right-col .container .daily-weather {
@@ -207,22 +235,22 @@ html, body {
     height: 50px;
 }
 
-.main-cont .right-col .container .row .sun .sun-sun, .main-cont .right-col .container .row .moon .moon-moon {
+.main-cont .right-col .container .sun .sun-sun, .main-cont .right-col .container  .moon .moon-moon {
     margin-bottom: 10px;
 }
-.main-cont .right-col .container .row .sun .sun-rise-container, .sun-set-container {
+.main-cont .right-col .container .sun .sun-rise-container, .sun-set-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
 }
-.main-cont .right-col .container .row .moon .moon-rise-container, .moon-set-container {
+.main-cont .right-col .container  .moon .moon-rise-container, .moon-set-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
 }
-.main-cont .right-col .container .row .sr-time {
+.main-cont .right-col .container .sr-time {
     font-size: 20px;
 }
 .moon-container div, .sun-container div {
