@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Left from './Components/Left';
 import Right from './Components/Right';
 import './style/style.css';
-import 'rsuite/Carousel/styles/index.css';
+import './style/adaptive.css';
 import { useDispatch } from 'react-redux';
 import { getWeatherAsync } from './Store/weather.slice';
 import { AppDispatch } from './Store/store';

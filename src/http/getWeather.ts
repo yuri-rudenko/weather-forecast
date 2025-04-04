@@ -4,6 +4,7 @@ import WeatherResponse from "./weather-interface";
 export async function getWeather(city: string): Promise<WeatherResponse | null> {
     const urlTemplate = process.env.REACT_APP_WEATHER_KEY;
 
+    console.log(city);
     if (!urlTemplate) {
         return null;
     }

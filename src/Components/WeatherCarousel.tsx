@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'rsuite';
 import { RootState } from '../Store/store';
 import { useSelector } from 'react-redux';
+import 'rsuite/Carousel/styles/index.css';
+
+function getDayQuarter(date: Date): number {
+    const hour = date.getHours();
+
+    if (hour < 6) return 0;
+    if (hour < 12) return 1;
+    if (hour < 18) return 2;
+    return 3;
+}
 
 const WeatherCarousel = () => {
 
     const data = useSelector((state: RootState) => state.weather.data);
     const activeDay = useSelector((state: RootState) => state.weather.activeDay);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const curDay = data?.forecast.forecastday[activeDay];
 
+    useEffect(() => {
+        setActiveIndex(getDayQuarter(new Date(data?.location.localtime || Date.now())));
+    }, [data])
+
     return (
-        <Carousel style={{ height: '150px', width: "fit-content" }}>
+        <Carousel activeIndex={activeIndex} onSelect={index => { setActiveIndex(index) }} style={{ height: 'fit-content', width: "fit-content", paddingBottom: "15px", backgroundColor: "transparent" }}>
             {Array.from({ length: 4 }).map((_, i) => {
                 const start = i * 6;
                 const end = start + 6;
