@@ -12,6 +12,7 @@ export async function getWeather(city: string): Promise<WeatherResponse | null> 
 
     try {
         const response = await axios.get(url);
+        console.log(response.data);
         const data: WeatherResponse = response.data;
 
         return data;

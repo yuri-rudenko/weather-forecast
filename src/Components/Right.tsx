@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import WeatherCarousel from './WeatherCarousel';
 import DataTable from './Data-Table';
-import { getWeather } from '../http/getWeather';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../Store/store';
+import { changeActiveDay } from '../Store/weather.slice';
 
 const days: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -9,8 +11,16 @@ const Right = () => {
 
     const [futureDays, setFutureDays] = useState<string[]>([]);
     const today: Date = new Date();
+    const activeDay = useSelector((state: RootState) => state.weather.activeDay);
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    const handleDayChange = (day: number) => {
+        dispatch(changeActiveDay({ activeDay: day }));
+    };
 
     useEffect(() => {
+
         const newFutureDays: string[] = [];
 
         for (let i = 0; i < 1; i++) {
@@ -20,24 +30,23 @@ const Right = () => {
             newFutureDays.push(weekday);
         }
 
-        getWeather("svalbard")
-
         setFutureDays(newFutureDays);
+
     }, []);
 
     return (
         <div>
             <div className="col right-col">
                 <nav className="navbar">
-                    <div className="nav-item">
-                        <p className="nav-link">Today</p>
+                    <div onClick={() => handleDayChange(0)} className="nav-item">
+                        <p style={{color: activeDay === 0 ? "black" : "rgba(0, 0, 0, 0.65)"}} className="nav-link">Today</p>
                     </div>
-                    <div className="nav-item">
-                        <p className="nav-link">Tomorrow</p>
+                    <div onClick={() => handleDayChange(1)} className="nav-item">
+                        <p style={{color: activeDay === 1 ? "black" : "rgba(0, 0, 0, 0.65)"}} className="nav-link">Tomorrow</p>
                     </div>
-                    {futureDays.map(day => (
-                        <div key={day} className="nav-item">
-                            <p className="nav-link">{day}</p>
+                    {futureDays.map((day, index) => (
+                        <div onClick={() => handleDayChange(index+2)} key={day} className="nav-item">
+                            <p style={{color: activeDay === index+2 ? "black" : "rgba(0, 0, 0, 0.65)"}} className="nav-link">{day}</p>
                         </div>
                     ))}
                 </nav>

@@ -44,7 +44,7 @@ const Left = () => {
                     </div>
                     <div className="city">
                         <p>{data?.location.name}</p>
-                        <img src={getFlagLink(data?.location.country || '')} />
+                        <img src={getFlagLink(data?.location.country || '')} alt={data?.location.country}/>
                     </div>
                 </div>
             </div>

@@ -32,7 +32,11 @@ export const getWeatherAsync = createAsyncThunk<WeatherResponse, string, { rejec
 const weatherSlice = createSlice({
     name: 'weather',
     initialState,
-    reducers: {},
+    reducers: {
+        changeActiveDay: (state, action: PayloadAction<{ activeDay: number }>) => {
+            state.activeDay = action.payload.activeDay;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getWeatherAsync.pending, (state) => {
@@ -49,5 +53,7 @@ const weatherSlice = createSlice({
             });
     },
 });
+
+export const { changeActiveDay } = weatherSlice.actions;
 
 export default weatherSlice.reducer;
