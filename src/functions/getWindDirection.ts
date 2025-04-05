@@ -4,7 +4,7 @@ export default function getWindDirection(degrees: number): string {
         "South-West", "West", "North-West"
     ];
 
-    degrees = (degrees % 360 + 360) % 360;
+    degrees = ((degrees % 360) + 360) % 360;
 
     const index = Math.floor((degrees + 22.5) / 45) % 8;
 

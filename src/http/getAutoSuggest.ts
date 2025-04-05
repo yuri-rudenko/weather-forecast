@@ -10,8 +10,6 @@ export interface City {
     url: string;
 }
 
-
-
 export default async function getAutoSuggest(city: string): Promise<City[] | null> {
 
     const urlTemplate = process.env.REACT_APP_AUTO_SUGGEST_KEY;
@@ -24,8 +22,6 @@ export default async function getAutoSuggest(city: string): Promise<City[] | nul
 
     try {
         const response = await axios.get(url);
-
-        console.log(response.data);
 
         return response.data;
     } catch (error) {
