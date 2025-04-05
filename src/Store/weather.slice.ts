@@ -22,6 +22,7 @@ export const getWeatherAsync = createAsyncThunk<WeatherResponse, string, { rejec
         try {
             const response = await getWeather(city);
             if (!response) throw new Error("Failed to fetch weather data.");
+            localStorage.setItem('weatherData', JSON.stringify({ data: response, created: Date.now() }));
             return response;
         } catch (error: any) {
             return rejectWithValue(error.response?.data || error.message);
@@ -35,6 +36,9 @@ const weatherSlice = createSlice({
     reducers: {
         changeActiveDay: (state, action: PayloadAction<{ activeDay: number }>) => {
             state.activeDay = action.payload.activeDay;
+        },
+        setWeather: (state, action: PayloadAction<WeatherResponse>) => {
+            state.data = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -54,6 +58,6 @@ const weatherSlice = createSlice({
     },
 });
 
-export const { changeActiveDay } = weatherSlice.actions;
+export const { changeActiveDay, setWeather } = weatherSlice.actions;
 
 export default weatherSlice.reducer;
