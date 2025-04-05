@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "http://localhost:3000/static/css/main.b59f5822.css",
-    "main.js": "http://localhost:3000/static/js/main.e89161fc.js",
-    "static/media/HeroLight-Bold.woff": "http://localhost:3000/static/media/HeroLight-Bold.30302a12499aa90ccc08.woff",
-    "static/media/HeroLight-Regular.woff": "http://localhost:3000/static/media/HeroLight-Regular.935b782ae8f122e1c19b.woff",
-    "static/media/HeroLight-Light.woff": "http://localhost:3000/static/media/HeroLight-Light.8f2fd8136c16b41e1c2b.woff",
-    "index.html": "http://localhost:3000/index.html",
-    "main.b59f5822.css.map": "http://localhost:3000/static/css/main.b59f5822.css.map",
-    "main.e89161fc.js.map": "http://localhost:3000/static/js/main.e89161fc.js.map"
+    "main.css": "https://yuri-rudenko.github.io/weather-forecast/static/css/main.befef25b.css",
+    "main.js": "https://yuri-rudenko.github.io/weather-forecast/static/js/main.0104172f.js",
+    "static/media/HeroLight-Bold.woff": "https://yuri-rudenko.github.io/weather-forecast/static/media/HeroLight-Bold.30302a12499aa90ccc08.woff",
+    "static/media/HeroLight-Regular.woff": "https://yuri-rudenko.github.io/weather-forecast/static/media/HeroLight-Regular.935b782ae8f122e1c19b.woff",
+    "static/media/HeroLight-Light.woff": "https://yuri-rudenko.github.io/weather-forecast/static/media/HeroLight-Light.8f2fd8136c16b41e1c2b.woff",
+    "index.html": "https://yuri-rudenko.github.io/weather-forecast/index.html",
+    "main.befef25b.css.map": "https://yuri-rudenko.github.io/weather-forecast/static/css/main.befef25b.css.map",
+    "main.0104172f.js.map": "https://yuri-rudenko.github.io/weather-forecast/static/js/main.0104172f.js.map"
   },
   "entrypoints": [
-    "static/css/main.b59f5822.css",
-    "static/js/main.e89161fc.js"
+    "static/css/main.befef25b.css",
+    "static/js/main.0104172f.js"
   ]
 }
