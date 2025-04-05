@@ -15,7 +15,9 @@ const Left = () => {
     let code = data?.current.condition.icon.slice(-7, -4)
     if (!code) code = '103';
 
-    const imageUrl = `http://localhost:3000/img/weather/${data?.current.is_day ? 'day' : 'night'}/${code}.png`;
+    const link = process.env.PUBLIC_URL;
+
+    const imageUrl = `${link}/img/weather/${data?.current.is_day ? 'day' : 'night'}/${code}.png`;
     let curDate = getDate(new Date(data?.location.localtime || Date.now()));
 
     const [inputText, setInputText] = useState<string>('');
@@ -44,7 +46,7 @@ const Left = () => {
             setOpen(false)
         }
         if (cities.length === 0) setOpen(false);
-    }, [inputText]);
+    }, [inputText, cities.length]);
 
     useEffect(() => {
         const handleKeyDown = (ev: KeyboardEvent) => {
@@ -99,7 +101,7 @@ const Left = () => {
                             changeCity(inputText);
                         }
                     }} 
-                    src="/img/interface/8666693_search_icon.svg" alt="Search Icon" className='search' style={{cursor: "pointer"}}/>
+                    src={`${link}/img/interface/8666693_search_icon.svg`} alt="Search Icon" className='search' style={{cursor: "pointer"}}/>
                 </div>
                 <div className="weather-info-wrapper">
                     <div className="weather-picture">

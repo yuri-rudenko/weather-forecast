@@ -39,25 +39,25 @@ const weatherSlice = createSlice({
         },
         setWeather: (state, action: PayloadAction<WeatherResponse>) => {
             state.data = action.payload;
-        }
+        },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.loading = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
             .addCase(getWeatherAsync.pending, (state) => {
-                state.loading = true;
                 state.error = null;
             })
             .addCase(getWeatherAsync.fulfilled, (state, action: PayloadAction<WeatherResponse>) => {
-                state.loading = false;
                 state.data = action.payload;
             })
             .addCase(getWeatherAsync.rejected, (state, action) => {
-                state.loading = false;
                 state.error = action.payload as string;
             });
     },
 });
 
-export const { changeActiveDay, setWeather } = weatherSlice.actions;
+export const { changeActiveDay, setWeather, setLoading} = weatherSlice.actions;
 
 export default weatherSlice.reducer;

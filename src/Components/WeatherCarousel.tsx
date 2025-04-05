@@ -20,6 +20,7 @@ const WeatherCarousel = () => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const curDay = data?.forecast.forecastday[activeDay];
+    const link = process.env.PUBLIC_URL;
 
     useEffect(() => {
         setActiveIndex(getDayQuarter(new Date(data?.location.localtime || Date.now())));
@@ -38,7 +39,7 @@ const WeatherCarousel = () => {
 
                                 let code = day.condition.icon?.slice(-7, -4) || '103';
 
-                                const imageUrl = `http://localhost:3000/img/weather/${data?.current.is_day ? 'day' : 'night'}/${encodeURIComponent(code)}.png`;
+                                const imageUrl = `${link}/img/weather/${data?.current.is_day ? 'day' : 'night'}/${encodeURIComponent(code)}.png`;
 
                                 return (
                                     <div className="col" key={k}>
